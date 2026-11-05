@@ -3,8 +3,20 @@
 @source '../views/**/*.blade.php';
 @source '../js/**/*.{ts,tsx}';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@import './styles/effects.css';
-@import './lirias.css';
+@import './effects/ambient.css';
+@import './foundations/typography.css';
+@import './foundations/tokens.css';
+@import './foundations/base.css';
+@import './components/surfaces.css';
+@import './components/patterns.css';
+@import './components/selectors.css';
+@import './components/interactions.css';
+@import './components/actions.css';
+@import './pages/home-flow.css';
+@import './pages/sitewide.css';
+@import './pages/home-editorial.css';
+@import './layouts/footer.css';
+@import './layouts/marketing-canvas.css';
 
 @theme {
     --font-sans:

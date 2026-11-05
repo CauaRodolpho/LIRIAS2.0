@@ -1,0 +1,54 @@
+@layer components {
+    .automation-canvas {
+        background-image: radial-gradient(
+            circle,
+            hsl(var(--border) / 0.7) 1px,
+            transparent 1.5px
+        );
+        background-size: 24px 24px;
+    }
+
+    .automation-line,
+    .automation-branch {
+        overflow: hidden;
+    }
+
+    .automation-line::after,
+    .automation-branch::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 2px;
+        background: hsl(var(--primary));
+        box-shadow: 0 0 10px hsl(var(--primary) / 0.7);
+        animation: automation-signal 2.4s ease-in-out infinite;
+    }
+}
+
+@keyframes automation-signal {
+    from {
+        left: -18px;
+        opacity: 0;
+    }
+    35%,
+    65% {
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .workload-route-signal,
+    .security-flow-signal {
+        animation: none;
+        opacity: 0.45;
+    }
+
+    .automation-line::after,
+    .automation-branch::after {
+        animation: none;
+    }
+}

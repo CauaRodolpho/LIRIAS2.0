@@ -1,0 +1,378 @@
+@layer components {
+    /* Contrato único para superfícies de conteúdo. Mantém marketing e painel
+     consistentes sem transformar controles, avisos e menus em cartões. */
+    .surface-card {
+        @apply rounded-xl border border-border/80 bg-card/80 text-card-foreground;
+        box-shadow:
+            0 1px 0 hsl(var(--overlay) / 0.04),
+            0 18px 46px -42px hsl(var(--overlay) / 0.34);
+    }
+
+    .surface-card-interactive {
+        @apply transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out;
+    }
+
+    .surface-card-interactive:hover {
+        @apply border-primary/30 bg-card;
+        box-shadow:
+            0 1px 0 hsl(var(--primary) / 0.12),
+            0 22px 50px -40px hsl(var(--primary) / 0.28);
+        transform: translateY(-1px);
+    }
+
+    .surface-card-interactive:focus-within {
+        @apply border-primary/40;
+        box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .surface-card-interactive:hover {
+            transform: none;
+        }
+    }
+
+    .infrastructure-section {
+        background: linear-gradient(
+            180deg,
+            hsl(var(--background-secondary) / 0.7),
+            hsl(var(--background))
+        );
+    }
+
+    .infrastructure-grid {
+        opacity: 0.4;
+        background-image:
+            linear-gradient(hsl(var(--border) / 0.45) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                hsl(var(--border) / 0.45) 1px,
+                transparent 1px
+            );
+        background-size: 72px 72px;
+        mask-image: radial-gradient(
+            ellipse at 75% 42%,
+            black 0%,
+            transparent 68%
+        );
+    }
+
+    .bento-feature {
+        border-radius: 1rem;
+        box-shadow: 0 16px 40px -34px hsl(var(--overlay) / 0.22);
+    }
+
+    .bento-feature::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                hsl(var(--border) / 0.3) 1px,
+                transparent 1px
+            );
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to left, black, transparent 62%);
+    }
+
+    .bento-feature-main {
+        background: hsl(var(--card));
+    }
+
+    .bento-orbit {
+        border: 1px solid hsl(var(--primary) / 0.18);
+        box-shadow: none;
+    }
+
+    .bento-orbit-outer {
+        background: conic-gradient(
+            from 25deg,
+            transparent 0 10%,
+            hsl(var(--primary) / 0.17) 10% 11%,
+            transparent 11% 34%,
+            hsl(var(--primary) / 0.11) 34% 35%,
+            transparent 35% 70%,
+            hsl(var(--primary) / 0.16) 70% 71%,
+            transparent 71% 100%
+        );
+        animation: bento-orbit-spin 24s linear infinite;
+    }
+
+    .bento-orbit-middle {
+        border-color: hsl(var(--primary) / 0.28);
+        animation: bento-orbit-spin 18s linear infinite reverse;
+    }
+
+    .bento-gauge {
+        border: 18px solid hsl(var(--primary) / 0.1);
+        border-top-color: hsl(var(--primary));
+        border-right-color: hsl(var(--primary-light));
+        box-shadow: 0 0 0 1px hsl(var(--border));
+        transform: rotate(45deg);
+    }
+
+    .bento-gauge-needle {
+        animation: bento-gauge-sweep 4.8s cubic-bezier(0.22, 1, 0.36, 1)
+            infinite;
+    }
+
+    .bento-terminal,
+    .bento-panel {
+        border-radius: 0.75rem;
+    }
+
+    .bento-terminal {
+        animation: bento-float 7s ease-in-out infinite;
+    }
+
+    .bento-panel {
+        animation: bento-float 8s ease-in-out 0.7s infinite;
+    }
+
+    .hero-background {
+        background: linear-gradient(
+            180deg,
+            hsl(var(--background)),
+            hsl(var(--background-secondary) / 0.62) 72%,
+            hsl(var(--background))
+        );
+    }
+
+    .dark .hero-background {
+        background: hsl(var(--background));
+    }
+
+    .hero-main-grid .animated-grid-plane {
+        bottom: -43%;
+        left: -45%;
+        width: 190%;
+        height: 118%;
+        opacity: 0.58;
+        background-size: 88px 64px;
+        transform: perspective(560px) rotateX(60deg);
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 18%,
+            black 70%,
+            transparent 100%
+        );
+        animation: hero-main-grid-flow 13s linear infinite;
+    }
+
+    .hero-main-grid .animated-grid-vignette {
+        background:
+            linear-gradient(
+                to bottom,
+                hsl(var(--background) / 0.2),
+                transparent 25%,
+                transparent 70%,
+                hsl(var(--background)) 100%
+            ),
+            radial-gradient(
+                ellipse at 64% 48%,
+                transparent 28%,
+                hsl(var(--background) / 0.46) 100%
+            );
+    }
+
+    .provision-shell {
+        border-radius: 0.9rem;
+        box-shadow: 0 18px 50px -36px hsl(var(--overlay) / 0.35);
+    }
+
+    .provision-shell::before,
+    .provision-shell::after {
+        content: '';
+        position: absolute;
+        z-index: 30;
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+    }
+
+    .provision-shell::before {
+        left: -1px;
+        top: -1px;
+        border-left: 2px solid hsl(var(--primary-light));
+        border-top: 2px solid hsl(var(--primary-light));
+    }
+
+    .provision-shell::after {
+        right: -1px;
+        bottom: -1px;
+        border-right: 2px solid hsl(var(--primary-light));
+        border-bottom: 2px solid hsl(var(--primary-light));
+    }
+
+    .provision-scan {
+        background: linear-gradient(
+            90deg,
+            transparent,
+            hsl(var(--primary-light) / 0.9),
+            transparent
+        );
+        animation: provision-scan 5.5s ease-in-out infinite;
+    }
+
+    .provision-progress-line::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        transform-origin: top;
+        background: linear-gradient(
+            to bottom,
+            hsl(var(--primary)),
+            hsl(var(--success))
+        );
+        animation: provision-progress 2.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .terminal-caret {
+        animation: terminal-caret 1s steps(1, end) infinite;
+    }
+
+    .telemetry-bar {
+        transform-origin: bottom;
+        animation: telemetry-live 2.6s ease-in-out infinite alternate;
+    }
+
+    .hero-stars {
+        opacity: 0.35;
+        background-image:
+            radial-gradient(
+                circle at 18% 27%,
+                hsl(var(--primary-light)) 0.8px,
+                transparent 1.4px
+            ),
+            radial-gradient(
+                circle at 80% 19%,
+                hsl(var(--primary-light)) 0.8px,
+                transparent 1.4px
+            ),
+            radial-gradient(
+                circle at 27% 43%,
+                hsl(var(--primary-light)) 0.7px,
+                transparent 1.3px
+            ),
+            radial-gradient(
+                circle at 74% 46%,
+                hsl(var(--primary-light)) 0.7px,
+                transparent 1.3px
+            ),
+            radial-gradient(
+                circle at 10% 57%,
+                hsl(var(--primary-light)) 0.8px,
+                transparent 1.4px
+            ),
+            radial-gradient(
+                circle at 91% 61%,
+                hsl(var(--primary-light)) 0.8px,
+                transparent 1.4px
+            );
+    }
+
+    .hero-horizon {
+        inset: -110px -15% auto;
+        height: 310px;
+        background: radial-gradient(
+            ellipse at center,
+            hsl(var(--primary) / 0.12),
+            hsl(var(--primary) / 0.04) 35%,
+            transparent 68%
+        );
+        animation: grid-glow-breathe 9s ease-in-out infinite;
+    }
+
+    .dark .hero-horizon {
+        background: radial-gradient(
+            ellipse at center,
+            hsl(var(--primary-light) / 0.3),
+            hsl(var(--primary) / 0.2) 25%,
+            hsl(var(--primary) / 0.07) 48%,
+            transparent 70%
+        );
+    }
+
+    .hero-grid {
+        inset: -155px -25% auto;
+        height: 370px;
+        background-image:
+            linear-gradient(
+                hsl(var(--primary-light) / 0.2) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                hsl(var(--primary-light) / 0.2) 1px,
+                transparent 1px
+            );
+        background-size: 64px 48px;
+        transform: perspective(480px) rotateX(62deg);
+        transform-origin: center;
+        mask-image: radial-gradient(
+            ellipse at center,
+            black 10%,
+            transparent 68%
+        );
+        animation: hero-grid-flow 18s linear infinite;
+    }
+
+    .hero-dashboard {
+        box-shadow:
+            0 1px 0 hsl(var(--primary-light) / 0.2) inset,
+            0 20px 70px -35px hsl(var(--primary) / 0.3);
+    }
+
+    @media (max-width: 639px) {
+        .hero-horizon {
+            height: 230px;
+            inset-block-start: -90px;
+        }
+        .hero-grid {
+            opacity: 0.6;
+            background-size: 48px 40px;
+        }
+
+        .hero-main-grid .animated-grid-plane {
+            bottom: -12%;
+            left: -70%;
+            width: 240%;
+            height: 70%;
+            opacity: 0.65;
+            background-size: 58px 46px;
+        }
+
+        .hero-preview-orbit {
+            inset: -0.75rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .bento-orbit-outer,
+        .bento-orbit-middle,
+        .bento-gauge-needle,
+        .bento-terminal,
+        .bento-panel,
+        .hero-background *,
+        .hero-background *::before,
+        .hero-background *::after {
+            transition: none;
+        }
+        .hero-background .hero-cta {
+            transform: none;
+        }
+        .hero-grid,
+        .hero-horizon,
+        .hero-main-grid .animated-grid-plane,
+        .provision-scan,
+        .provision-progress-line::after,
+        .telemetry-bar,
+        .terminal-caret {
+            animation: none;
+        }
+    }
+}

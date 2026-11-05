@@ -1,0 +1,97 @@
+/* Revisão sitewide — linguagem operacional LIRIAS. */
+@layer components {
+    .product-hero-canvas {
+        background:
+            linear-gradient(hsl(var(--border) / 0.16) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                hsl(var(--border) / 0.16) 1px,
+                transparent 1px
+            ),
+            radial-gradient(
+                ellipse at 72% 42%,
+                hsl(var(--primary) / 0.09),
+                transparent 38rem
+            );
+        background-size:
+            72px 72px,
+            72px 72px,
+            auto;
+        mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black 82%,
+            transparent 100%
+        );
+    }
+
+    .faq-flow {
+        background:
+            radial-gradient(
+                ellipse at 12% 32%,
+                hsl(var(--primary) / 0.055),
+                transparent 34rem
+            ),
+            hsl(var(--background));
+    }
+
+    .technical-rail {
+        background: linear-gradient(
+            to right,
+            transparent,
+            hsl(var(--background-secondary) / 0.68) 12%,
+            hsl(var(--background-secondary) / 0.68) 88%,
+            transparent
+        );
+    }
+
+    .technical-rail-track::before {
+        content: '';
+        position: absolute;
+        left: 0.3rem;
+        top: 0.35rem;
+        bottom: 0.35rem;
+        width: 1px;
+        background: hsl(var(--border));
+    }
+
+    .technical-rail-signal {
+        top: 0.3rem;
+        left: 0;
+        animation: technical-rail-travel 8s linear infinite;
+        filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.7));
+    }
+
+    @media (min-width: 1024px) {
+        .technical-rail-track::before {
+            left: 0;
+            right: 1.5rem;
+            top: 0.3rem;
+            bottom: auto;
+            width: auto;
+            height: 1px;
+        }
+    }
+}
+
+@keyframes technical-rail-travel {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    8%,
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: calc(100% - 4rem);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .technical-rail-signal {
+        animation: none;
+        opacity: 0;
+    }
+}
