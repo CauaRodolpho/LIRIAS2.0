@@ -1,0 +1,141 @@
+/* ==========================================================================
+   LIRIAS — DESIGN TOKENS
+   Sistema semântico de cores em HSL, consumido pelo tailwind.config.ts.
+   Trocar de tema = trocar apenas os valores destas variáveis.
+   ========================================================================== */
+
+@layer base {
+    :root {
+        /* ---- Superfícies: light neutro e corporativo ---- */
+
+        --background: 240 20% 98%;
+        --foreground: 240 18% 11%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 18% 11%;
+        --card-hover: 240 16% 97%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 18% 11%;
+
+        --background-secondary: 240 16% 96%;
+        --background-tertiary: 240 12% 92%;
+
+        /* ---- Marca violeta: usada apenas em destaque e interação ---- */
+
+        --primary: 274 60% 46%;
+        --primary-hover: 274 67% 39%;
+        --primary-light: 274 52% 52%;
+        --primary-foreground: 0 0% 100%;
+
+        /* ---- Ações secundárias neutras ---- */
+
+        --secondary: 240 10% 91%;
+        --secondary-hover: 240 10% 86%;
+        --secondary-light: 240 10% 96%;
+        --secondary-foreground: 240 18% 16%;
+
+        /* ---- Neutros ---- */
+
+        --muted: 240 10% 94%;
+        --muted-foreground: 240 7% 40%;
+
+        --accent: 274 34% 94%;
+        --accent-foreground: 274 55% 30%;
+
+        /* ---- Bordas, inputs e foco ---- */
+
+        --border: 240 10% 85%;
+        --border-hover: 240 9% 73%;
+        --border-active: 274 48% 54%;
+
+        --input: 240 10% 87%;
+        --ring: 274 60% 46%;
+
+        /* ---- Status ---- */
+
+        --success: 150 65% 30%;
+        --success-light: 150 55% 39%;
+        --success-foreground: 0 0% 100%;
+
+        --warning: 42 88% 38%;
+        --warning-light: 42 86% 47%;
+        --warning-foreground: 260 22% 10%;
+
+        --danger: 4 70% 45%;
+        --danger-light: 4 72% 54%;
+        --danger-foreground: 0 0% 100%;
+
+        --destructive: 4 70% 45%;
+        --destructive-foreground: 0 0% 100%;
+
+        --overlay: 240 18% 10%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        /* Superfícies neutras */
+
+        --background: 240 10% 4%;
+        --foreground: 270 15% 96%;
+
+        --card: 240 8% 8%;
+        --card-foreground: 270 15% 96%;
+        --card-hover: 250 9% 11%;
+
+        --popover: 240 8% 8%;
+        --popover-foreground: 270 15% 96%;
+
+        --background-secondary: 240 9% 6%;
+        --background-tertiary: 250 9% 10%;
+
+        /* Lilás somente como marca */
+
+        --primary: 279 70% 60%;
+        --primary-hover: 279 72% 66%;
+        --primary-light: 278 55% 75%;
+        --primary-foreground: 240 10% 6%;
+
+        --secondary: 270 18% 22%;
+        --secondary-hover: 270 22% 28%;
+        --secondary-light: 278 35% 70%;
+        --secondary-foreground: 270 15% 96%;
+
+        /* Neutros */
+
+        --muted: 245 8% 13%;
+        --muted-foreground: 250 8% 65%;
+
+        --accent: 270 14% 14%;
+        --accent-foreground: 270 15% 96%;
+
+        /* Bordas */
+
+        --border: 250 8% 17%;
+        --border-hover: 270 14% 26%;
+        --border-active: 279 45% 45%;
+
+        --input: 250 8% 17%;
+        --ring: 279 70% 60%;
+
+        /* Status */
+
+        --success: 150 60% 45%;
+        --success-light: 150 55% 56%;
+        --success-foreground: 240 10% 6%;
+
+        --warning: 42 90% 55%;
+        --warning-light: 42 88% 65%;
+        --warning-foreground: 240 10% 6%;
+
+        --danger: 4 75% 58%;
+        --danger-light: 4 80% 68%;
+        --danger-foreground: 0 0% 100%;
+
+        --destructive: 4 75% 58%;
+        --destructive-foreground: 0 0% 100%;
+
+        --overlay: 0 0% 100%;
+    }
+}

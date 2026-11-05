@@ -24,9 +24,14 @@ export default defineConfig({
             presets: [reactCompilerPreset()],
         }),
         tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
+        ...(process.env.LIRIAS_SKIP_WAYFINDER === '1'
+            ? []
+            : [
+                  wayfinder({
+                      formVariants: true,
+                      skipDatabase: true,
+                  }),
+              ]),
     ]),
     server: {
         watch: {

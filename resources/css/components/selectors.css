@@ -1,0 +1,50 @@
+@layer components {
+    .workload-canvas {
+        background-image:
+            linear-gradient(hsl(var(--border) / 0.34) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                hsl(var(--border) / 0.34) 1px,
+                transparent 1px
+            );
+        background-size: 42px 42px;
+    }
+
+    .workload-route-signal {
+        animation: workload-route 2.2s ease-in-out infinite;
+    }
+
+    .security-flow-signal {
+        animation: security-scan 4.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+}
+
+@keyframes workload-route {
+    from {
+        left: -0.75rem;
+        opacity: 0;
+    }
+    35%,
+    65% {
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes security-scan {
+    0% {
+        top: -4rem;
+        opacity: 0;
+    }
+    12%,
+    82% {
+        opacity: 0.9;
+    }
+    100% {
+        top: calc(100% - 1rem);
+        opacity: 0;
+    }
+}

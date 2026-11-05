@@ -1,0 +1,128 @@
+/* Home — fluxo contínuo entre hero, planos e base técnica. */
+@layer components {
+    .home-flow-hero::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        inset: auto 0 0;
+        height: 14rem;
+        pointer-events: none;
+        background:
+            radial-gradient(
+                ellipse at 50% 100%,
+                hsl(var(--primary) / 0.13),
+                transparent 62%
+            ),
+            linear-gradient(to bottom, transparent, hsl(var(--background)) 88%);
+    }
+
+    .technical-bridge {
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            hsl(var(--background) / 0.72) 48%,
+            hsl(var(--background)) 100%
+        );
+    }
+
+    .home-flow-pricing {
+        isolation: isolate;
+        background:
+            radial-gradient(
+                ellipse at 50% 0%,
+                hsl(var(--primary) / 0.07),
+                transparent 42rem
+            ),
+            linear-gradient(
+                to bottom,
+                hsl(var(--background)),
+                hsl(var(--background-secondary) / 0.32) 82%,
+                transparent
+            );
+    }
+
+    .home-flow-pricing::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: auto 0 0;
+        height: 10rem;
+        pointer-events: none;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            hsl(var(--background-secondary) / 0.72)
+        );
+    }
+
+    .home-flow-features {
+        margin-top: -1px;
+        background:
+            radial-gradient(
+                ellipse at 22% 0%,
+                hsl(var(--primary) / 0.07),
+                transparent 36rem
+            ),
+            linear-gradient(
+                to bottom,
+                hsl(var(--background-secondary) / 0.72),
+                hsl(var(--background))
+            );
+    }
+
+    .home-flow-features .infrastructure-grid {
+        opacity: 0.22;
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 24%,
+            black 72%,
+            transparent 100%
+        );
+    }
+}
+
+.dark .home-flow-pricing {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            hsl(var(--primary) / 0.1),
+            transparent 42rem
+        ),
+        linear-gradient(
+            to bottom,
+            hsl(var(--background)),
+            hsl(var(--background-secondary) / 0.5) 82%,
+            transparent
+        );
+}
+
+.dark .home-flow-features {
+    background:
+        radial-gradient(
+            ellipse at 22% 0%,
+            hsl(var(--primary) / 0.09),
+            transparent 36rem
+        ),
+        linear-gradient(
+            to bottom,
+            hsl(var(--background-secondary) / 0.82),
+            hsl(var(--background))
+        );
+}
+
+@media (max-width: 639px) {
+    .home-flow-hero::after {
+        height: 9rem;
+    }
+
+    .home-flow-features .infrastructure-grid {
+        opacity: 0.14;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .technical-bridge * {
+        transition-duration: 0.01ms !important;
+    }
+}

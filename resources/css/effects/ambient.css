@@ -1,0 +1,99 @@
+/* Visual effects intentionally isolated from the page background and tokens. */
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Cartão "canto de esquadro" — assinatura visual da LIRIAS,
+     substitui o glassmorphism/rounded-2xl genérico. */
+    .trace-card {
+        position: relative;
+        border-radius: var(--radius);
+    }
+    .trace-card::before,
+    .trace-card::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        pointer-events: none;
+        border-color: hsl(var(--primary) / 0.55);
+        opacity: 0;
+        transition: opacity 300ms ease-out;
+    }
+    .trace-card::before {
+        top: -1px;
+        left: -1px;
+        border-top: 1.5px solid;
+        border-left: 1.5px solid;
+    }
+    .trace-card::after {
+        bottom: -1px;
+        right: -1px;
+        border-bottom: 1.5px solid;
+        border-right: 1.5px solid;
+    }
+    .trace-card:hover::before,
+    .trace-card:hover::after,
+    .trace-card:focus-within::before,
+    .trace-card:focus-within::after {
+        opacity: 1;
+    }
+
+    /* Sublinhado-trilha: desenha da esquerda pra direita no hover */
+    .trace-link {
+        position: relative;
+        text-decoration: none;
+    }
+    .trace-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background: hsl(var(--primary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 350ms ease-out;
+    }
+    .trace-link:hover::after,
+    .trace-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+}
+
+@layer components {
+    /* Pulso de sinal: anel que expande e desaparece — substitui o
+     animate-pulse genérico para indicar atividade real (servidor online). */
+    .signal-pulse {
+        position: relative;
+    }
+    .signal-pulse::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        background: currentColor;
+        animation: signal-ping 2.8s cubic-bezier(0.2, 0, 0.3, 1) infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .signal-pulse::after {
+            animation: none;
+            opacity: 0.35;
+        }
+    }
+}
+
+@keyframes signal-ping {
+    0% {
+        transform: scale(1);
+        opacity: 0.45;
+    }
+    75%,
+    100% {
+        transform: scale(1.9);
+        opacity: 0;
+    }
+}

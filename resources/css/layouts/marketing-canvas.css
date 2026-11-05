@@ -1,0 +1,74 @@
+/* Correção global — uma única superfície em todo o site de marketing. */
+@layer components {
+    .marketing-site-canvas,
+    .marketing-site-canvas #main-content {
+        background-color: hsl(var(--background));
+        background-image: none;
+    }
+
+    /*
+   * Seções são conteúdo, não novas superfícies.
+   * Objetos funcionais (cards, painéis, inputs e tabelas) preservam seus próprios fundos.
+   */
+    .marketing-site-canvas #main-content > *,
+    .marketing-site-canvas #main-content main,
+    .marketing-site-canvas #main-content section {
+        background-color: transparent !important;
+    }
+
+    .marketing-site-canvas .hero-background,
+    .marketing-site-canvas .infrastructure-section,
+    .marketing-site-canvas .home-flow-pricing,
+    .marketing-site-canvas .home-flow-features,
+    .marketing-site-canvas .faq-flow,
+    .marketing-site-canvas .technical-bridge,
+    .marketing-site-canvas .technical-rail,
+    .marketing-site-canvas .site-footer {
+        background-color: transparent;
+    }
+
+    .marketing-site-canvas .hero-background,
+    .marketing-site-canvas .site-footer {
+        background-image: none;
+    }
+
+    .marketing-site-canvas .site-footer-entry {
+        opacity: 0.42;
+    }
+
+    .marketing-site-canvas .site-footer-rail,
+    .marketing-site-canvas .site-footer-meta {
+        box-shadow: inset 0 -1px hsl(var(--border) / 0.38);
+    }
+
+    .marketing-site-canvas .site-footer-meta {
+        box-shadow: inset 0 1px hsl(var(--border) / 0.38);
+    }
+}
+
+/* Complemento do canvas único — remove imagens de fundo estruturais residuais. */
+@layer components {
+    .marketing-site-canvas #main-content .home-flow-pricing,
+    .marketing-site-canvas #main-content .home-flow-features,
+    .marketing-site-canvas #main-content .infrastructure-section,
+    .marketing-site-canvas #main-content .technical-bridge,
+    .marketing-site-canvas #main-content .technical-rail,
+    .marketing-site-canvas #main-content .faq-flow {
+        background-image: none !important;
+    }
+
+    .marketing-site-canvas #main-content .home-flow-pricing::before,
+    .marketing-site-canvas #main-content .home-flow-pricing::after,
+    .marketing-site-canvas #main-content .home-flow-features::before,
+    .marketing-site-canvas #main-content .home-flow-features::after,
+    .marketing-site-canvas #main-content .infrastructure-section::before,
+    .marketing-site-canvas #main-content .infrastructure-section::after,
+    .marketing-site-canvas #main-content .technical-bridge::before,
+    .marketing-site-canvas #main-content .technical-bridge::after,
+    .marketing-site-canvas #main-content .technical-rail::before,
+    .marketing-site-canvas #main-content .technical-rail::after,
+    .marketing-site-canvas #main-content .faq-flow::before,
+    .marketing-site-canvas #main-content .faq-flow::after {
+        background: none !important;
+    }
+}
