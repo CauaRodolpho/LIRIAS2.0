@@ -1,7 +1,10 @@
 @import 'tailwindcss';
-
-@source '../views';
+@config '../../tailwind.config.ts';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.{ts,tsx}';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@import './styles/effects.css';
+@import './lirias.css';
 
 @theme {
     --font-sans:
