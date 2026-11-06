@@ -61,7 +61,13 @@ const resolved = computed(() => {
     if (screen === 'pricing')
         return { component: markRaw(PricingPage), pageProps: {} };
     if (screen === 'applications' || screen === 'application-detail')
-        return { component: markRaw(ApplicationsPage), pageProps: {} };
+        return {
+            component: markRaw(ApplicationsPage),
+            pageProps: {
+                detail: screen === 'application-detail',
+                slug: props.route?.params?.slug,
+            },
+        };
     if (
         screen === 'automation' ||
         screen === 'agents' ||
@@ -111,7 +117,11 @@ const resolved = computed(() => {
     )
         return {
             component: markRaw(CheckoutPage),
-            pageProps: { stage: screen },
+            pageProps: {
+                stage: screen,
+                query: props.route?.query,
+                params: props.route?.params,
+            },
         };
     if (dashboardScreens.has(screen))
         return {
