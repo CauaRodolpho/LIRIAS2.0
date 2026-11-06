@@ -2,7 +2,7 @@
 export default {
     darkMode: ['class'],
     content: [
-        './resources/js/**/*.{js,ts,jsx,tsx,mdx}',
+        './resources/js/**/*.{js,ts,vue}',
         './resources/views/**/*.blade.php',
     ],
     theme: {
@@ -81,8 +81,8 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
-                display: ['Sora Variable', 'Sora', 'system-ui', 'sans-serif'],
+                sans: ['Instrument Sans', 'system-ui', 'sans-serif'],
+                display: ['Instrument Sans', 'system-ui', 'sans-serif'],
                 mono: [
                     'var(--font-mono)',
                     'JetBrains Mono',

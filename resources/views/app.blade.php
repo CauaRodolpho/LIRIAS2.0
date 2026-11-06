@@ -10,8 +10,7 @@
 
         <meta name="description" content="LIRIAS — plataforma para configurar e gerenciar infraestrutura VPS.">
 
-        @viteReactRefresh
-        @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+        @vite(['resources/css/app.css', 'resources/js/app.ts'])
         <x-inertia::head>
             <title>{{ config('app.name', 'LIRIAS') }}</title>
         </x-inertia::head>
